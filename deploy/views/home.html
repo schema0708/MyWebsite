@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Home</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="">
+    <!--    <script type="text/javascript" src="../js/home.js"></script>-->
+    <script type="text/javascript">
+        function setupView() {
+            console.info("setupView();");
+
+            TweenMax.set($(".circle-container"), {
+
+                opacity: 0,
+            });
+            TweenMax.set($(".heading"), {
+                opacity: 0
+            });
+            TweenMax.set($(".r-line"), {
+                transformOrigin: "left",
+                opacity: 0,
+                scaleX: 0
+            });
+            TweenMax.set($(".l-line"), {
+                transformOrigin: "right",
+                opacity: 0,
+                scaleX: 0
+            });
+            TweenMax.set($(".diamond"), {
+                transformOrigin: "center",
+                opacity: 0,
+                scale: 0,
+                rotation: "+=180"
+            });
+            TweenMax.set($(".bottom-line"), {
+                transformOrigin: "center",
+                opacity: 0,
+                scaleX: 0
+            });
+            TweenMax.set($(".bottom-diamond"), {
+                opacity: 0
+            });
+
+            TweenMax.set($(".my-copy"), {
+                opacity: 0
+            });
+        }
+
+        $.animateView = function() {
+            console.info("animateView");
+            var tl = new TimelineMax();
+            tl.to($(".circle-container"), 1, {
+                opacity: 1,
+                ease: Quad.easeInOut
+            }).to($(".heading"), 2, {
+                opacity: 1,
+                ease: Quad.easeInOut
+            }, 0.25).to($(".r-line"), 1, {
+                transformOrigin: "left",
+                opacity: 1,
+                scaleX: 1,
+                ease: Quad.easeInOut
+            }, 0.5).to($(".l-line"), 1, {
+                transformOrigin: "right",
+                opacity: 1,
+                scaleX: 1,
+                ease: Quad.easeInOut
+            }, 0.5).to($(".diamond"), 1, {
+                transformOrigin: "center",
+                opacity: 1,
+                scale: 1,
+                rotation: "+=180",
+                ease: Quad.easeInOut
+            }, 0.75).to($(".my-copy"), 1, {
+                opacity: 1,
+                ease: Quad.easeInOut
+            }, 1).to($(".bottom-line"), 1, {
+                opacity: 1,
+                scaleX: 1,
+                ease: Quad.easeInOut
+            }, 1.25).to($(".bottom-diamond"), 1, {
+                opacity: 0.5,
+                ease: Quad.easeInOut
+            }, 1.5);
+        }
+        setupView();
+
+    </script>
+    <style>
+        .main-container .view-container .content {
+            display: block;
+            position: relative;
+            width: 100%;
+            height: 100%;
+            background: #000 url("images/home_bkg.jpg") no-repeat;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        #triangle .st0 {
+            fill: none;
+            stroke: #F79779;
+            stroke-miterlimit: 10;
+        }
+        
+        #triangle .st1 {
+            fill: none;
+            stroke: #C7B299;
+            stroke-miterlimit: 10;
+        }
+        
+        .main-container .view-container .content .circle-container {
+            display: block;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            left: 50%;
+            top: 50%;
+            max-width: 544px;
+            max-height: 544px;
+            -webkit-transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            -moz-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+        }
+        
+        .main-container .view-container .content .circle-container .circle-content {
+            display: block;
+            position: relative;
+            width: 60vw;
+            height: 60vh;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            margin: 0px;
+            padding: 0px;
+        }
+        
+        .main-container .view-container .content .triangle-container {
+            display: block;
+            position: absolute;
+            width: 1637px;
+            height: 100%;
+            top: 0px;
+            left: 50%;
+            -webkit-transform: translateX(-50%);
+            -ms-transform: translateX(-50%);
+            -moz-transform: translateX(-50%);
+            transform: translateX(-50%);
+        }
+        
+        #triangle {
+            height: 100%;
+        }
+        
+        .circle-content #content-info #info-content1 .st0 {
+            fill: url(#SVGID_1_);
+        }
+        
+        .circle-content #content-info #info-content1 .st1 {
+            opacity: 0.35;
+            fill: #474040;
+            stroke-width: 2;
+            stroke-miterlimit: 10;
+            enable-background: new;
+        }
+        
+        .circle-content #content-info #info-content2 .st2,
+        .circle-content #content-info .my-copy .st2 {
+            fill: #D9D9D9;
+        }
+        
+        .circle-content #content-info #info-content2 .st3,
+        .circle-content #content-info .my-copy .st3 {
+            font-family: 'Palatino-Roman';
+        }
+        
+        .circle-content #content-info #info-content2 .st4 {
+            font-size: 19.9988px;
+        }
+        
+        .circle-content #content-info #info-content2 .st5 {
+            fill: none;
+            stroke: #A79583;
+            stroke-miterlimit: 10;
+            stroke-opacity: 0.5;
+        }
+        
+        .circle-content #content-info #info-content2 .st6 {
+            opacity: 0.5;
+            fill: #020201;
+            stroke: #A79583;
+            stroke-miterlimit: 10;
+            enable-background: new;
+        }
+        
+        .circle-content #content-info #info-content2 .st7 {
+            opacity: 0.2;
+            fill: #231F20;
+            stroke: #C6B198;
+            stroke-miterlimit: 10;
+            enable-background: new;
+        }
+        
+        .circle-content #content-info #info-content2 .st8,
+        .circle-content #content-info .my-copy .st8 {
+            font-size: 12px;
+        }
+        
+        .circle-content #content-info #info-content2 .st9,
+        .circle-content #content-info .my-copy .st9 {
+            font-family: 'Palatino-Italic';
+        }
+        
+        @media only screen and (min-device-width: 320px) and (max-device-width: 667px) and (orientation: portrait) {
+            .main-container .view-container .content .circle-container .circle-content {
+                width: 100vw;
+            }
+        }
+        
+        @media only screen and (min-device-width: 320px) and (max-device-width: 667px) and (orientation: landscape) {
+            .main-container .view-container .content .circle-container .circle-content {
+                width: 33vw;
+            }
+        }
+        
+        @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
+            .main-container .view-container .content .circle-container .circle-content {
+                width: 77vw;
+            }
+        }
+        
+        @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+            .main-container .view-container .content .circle-container .circle-content {
+                width: 43vw;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+    <section class="content">
+        <div class="circle-container">
+            <div class="circle-content">
+                <?xml version="1.0" encoding="utf-8"?>
+                <svg version="1.1" id="content-info" x="0px" y="0px" viewBox="0 0 544 544" width="100%" height="100%">
+                        <g id="info-content1">
+                            <radialGradient id="SVGID_1_" cx="517.9985" cy="535.998" r="272.5534" gradientTransform="matrix(1 0 0 -1 -245.9985 807.998)" gradientUnits="userSpaceOnUse">
+                                <stop offset="0.625" style="stop-color:#000000;stop-opacity:0.65" />
+                                <stop offset="1" style="stop-color:#000000;stop-opacity:0" /> </radialGradient>
+                            <rect class="st0" width="544" height="544" />
+                            <circle class="st1" cx="272" cy="272" r="210.8" /> </g>
+                        <g id="info-content2">
+                            <text transform="matrix(1 0 0 1 229.2188 192.5313)" class="heading st2 st3 st4">Greetings</text>
+                            <line class="st5 r-line" x1="319.6" y1="187.4" x2="408" y2="187.4" />
+                            <line class="st5 l-line" x1="136" y1="187.4" x2="224.4" y2="187.4" />
+                            <rect x="411.4" y="184.9" transform="matrix(0.7071 -0.7071 0.7071 0.7071 -11.6611 348.4387)" class="diamond st6" width="6.8" height="6.8" />
+                            <rect x="125.1" y="183.2" transform="matrix(0.7071 -0.7071 0.7071 0.7071 -94.3172 145.4986)" class="diamond st6" width="6.8" height="6.8" />
+                            <line class="bottom-line st5" x1="197.2" y1="384.4" x2="346.8" y2="384.4" />
+                            <path class="bottom-diamond st7" d="M248.2,387.8c17,0,30.6,0,47.6,0c-6.8,3.4-17,6.8-23.8,10.2L248.2,387.8z" /> </g>
+                        <text class="my-copy" transform="matrix(1 0 0 1 90.011 217.1931)">
+                            <tspan x="0" y="0" class="st2 st3 st8">Welcome to our sanctuary, where you can find many explorations of</tspan>
+                            <tspan x="-8" y="25" class="st2 st3 st8">our online portfolio. Doing so we grant you a unique online experience,</tspan>
+                            <tspan x="4.6" y="50" class="st2 st3 st8">of what it would be like to take a voyage through our vision of the </tspan>
+                            <tspan x="9.2" y="75" class="st2 st3 st8">interactive medium. We’ve developed Websites, Ad Campaigns, </tspan>
+                            <tspan x="34" y="100" class="st2 st3 st8">and Video Games, for small, to large-scaled businesses, </tspan>
+                            <tspan x="105.8" y="125" class="st2 st3 st8">so please feel free to explore.</tspan>
+                            <tspan x="157.2" y="150" class="st2 st3 st8">- </tspan>
+                            <tspan x="164.2" y="150" class="st2 st9 st8">Namaste</tspan>
+                        </text>
+                    </svg>
+            </div>
+        </div>
+        <div class="triangle-container">
+            <svg id="triangle" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 1637 1079" preserveAspectRatio="xMidYMax meet" width="1637" height="1079" xml:space="preserve">
+                <g>
+                    <polyline class="st0" points="145.3,1 817,1079 1491.7,1 	" /> </g>
+                <g>
+                    <polyline class="st1" points="1491.7,1078.5 820,0.5 145.3,1078.5 	" /> </g>
+            </svg>
+        </div>
+    </section>
+</body>
+
+</html>

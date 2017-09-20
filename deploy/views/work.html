@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Work</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="">
+
+    <script type="application/javascript">
+        function setupView() {
+            console.info("setupView();");
+            TweenMax.set($(".circle-container"), {
+
+                opacity: 0,
+            });
+            TweenMax.set($(".heading"), {
+                opacity: 0
+            });
+            TweenMax.set($(".r-line"), {
+                transformOrigin: "left",
+                opacity: 0,
+                scaleX: 0
+            });
+            TweenMax.set($(".l-line"), {
+                transformOrigin: "right",
+                opacity: 0,
+                scaleX: 0
+            });
+            TweenMax.set($(".diamond"), {
+                transformOrigin: "center",
+                opacity: 0,
+                scale: 0,
+                rotation: "+=180"
+            });
+            TweenMax.set($(".bottom-line"), {
+                transformOrigin: "center",
+                opacity: 0,
+                scaleX: 0
+            });
+            TweenMax.set($(".bottom-diamond"), {
+                opacity: 0
+            });
+
+            TweenMax.set($(".my-copy"), {
+                opacity: 0
+            });
+
+            $(".work-btn").click(revealWork);
+        }
+
+        function revealWork() {
+            console.log("revealWork();");
+            TweenMax.to($(".work-overly"), 1, {
+                opacity: 1,
+                ease: Strong.easeOut,
+                onComplete: loadWork
+            });
+        }
+
+        function loadWork() {
+            console.log("loadWork();");
+        }
+
+        function animateView() {
+            console.info("animateView");
+            var tl = new TimelineMax();
+            tl.to($(".circle-container"), 1, {
+                opacity: 1,
+                ease: Quad.easeInOut
+            }).to($(".heading"), 2, {
+                opacity: 1,
+                ease: Quad.easeInOut
+            }, 0.25).to($(".r-line"), 1, {
+                transformOrigin: "left",
+                opacity: 1,
+                scaleX: 1,
+                ease: Quad.easeInOut
+            }, 0.5).to($(".l-line"), 1, {
+                transformOrigin: "right",
+                opacity: 1,
+                scaleX: 1,
+                ease: Quad.easeInOut
+            }, 0.5).to($(".diamond"), 1, {
+                transformOrigin: "center",
+                opacity: 1,
+                scale: 1,
+                rotation: "+=180",
+                ease: Quad.easeInOut
+            }, 0.75).to($(".my-copy"), 1, {
+                opacity: 1,
+                ease: Quad.easeInOut
+            }, 1).to($(".bottom-line"), 1, {
+                opacity: 1,
+                scaleX: 1,
+                ease: Quad.easeInOut
+            }, 1.25).to($(".bottom-diamond"), 1, {
+                opacity: 0.5,
+                ease: Quad.easeInOut
+            }, 1.5);
+        }
+        window.onload = setupView();
+
+    </script>
+    <style>
+        .main-container .view-container .content {
+            display: block;
+            position: relative;
+            width: 100%;
+            height: 100%;
+            background: #000 url("images/work_bkg.jpg") no-repeat;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        #triangle .st0 {
+            fill: none;
+            stroke: #F79779;
+            stroke-miterlimit: 10;
+        }
+        
+        #triangle .st1 {
+            fill: none;
+            stroke: #C7B299;
+            stroke-miterlimit: 10;
+        }
+        
+        .main-container .view-container .content .circle-container {
+            display: block;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            left: 50%;
+            top: 50%;
+            max-width: 471px;
+            max-height: 471px;
+            -webkit-transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            -moz-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+        }
+        
+        .main-container .view-container .content .circle-container .circle-content {
+            display: block;
+            position: relative;
+            width: 60vw;
+            height: 60vh;
+            max-width: 480px;
+            max-height: 480px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            margin: 0px;
+            padding: 0px;
+        }
+        
+        .main-container .view-container .content .triangle-container {
+            display: block;
+            position: absolute;
+            width: 1637px;
+            height: 100%;
+            top: 0px;
+            left: 50%;
+            pointer-events: none;
+            -webkit-transform: translateX(-50%);
+            -ms-transform: translateX(-50%);
+            -moz-transform: translateX(-50%);
+            transform: translateX(-50%);
+        }
+        
+        #triangle {
+            height: 100%;
+        }
+        
+        .content .circle-container circle.st0,
+        .content .circle-container polyline.st0 {
+            opacity: 0.25;
+            fill: #474040;
+            stroke: #9E8D7B;
+            stroke-width: 2;
+            enable-background: new;
+        }
+        
+        .content .circle-container polyline.st1,
+        .content .circle-container path.st1 {
+            opacity: 0.25;
+            stroke: #C7B299;
+            enable-background: new;
+        }
+        
+        .content .work-btn {
+            display: block;
+            position: relative;
+            width: auto;
+            height: auto;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        
+        .content .work-btn text,
+        .content .work-btn path {
+            -webkit-transition: -webkit-all 1s ease-out;
+            -moz-transition: -moz-all 1s ease-out;
+            -ms-transition: -ms-all 1s ease-out;
+            transition: all 1s ease-out;
+        }
+        
+        .content .work-btn:hover path {
+            -webkit-opacity: 0.5;
+            -ms-opacity: 0.5;
+            -moz-opacity: 0.5;
+            opacity: 0.5;
+        }
+        
+        .content .work-btn:hover text {
+            fill: #d4907a;
+        }
+        
+        .content .work-overly {
+            display: block;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0px;
+            left: 0px;
+            -webkit-opacity: 0;
+            -moz-opacity: 0;
+            -ms-opacity: 0;
+            opacity: 0;
+            pointer-events: none;
+            background-color: rgba(0, 0, 0, 0.6);
+            z-index: 3;
+        }
+        
+        .content .work-overly .close-btn {
+            display: block;
+            position: relative;
+            width: 3vw;
+            height: 100%;
+            top: 10px;
+            right: 10px;
+            text-decoration: none;
+            margin: 0px;
+            padding: 0px;
+            max-width: 40px;
+            max-height: 40px;
+            min-width: 35px;
+            min-height: 35px;
+            -webkit-transition: -webkit-transform 1s ease-out;
+            -moz-transition: -moz-transform 1s ease-out;
+            -ms-transition: -ms-transform 1s ease-out;
+            transition: transform 1s ease-out;
+        }
+        
+        .content .work-overly .close-btn:hover {
+            -webkit-transform: scale(1.05);
+            -ms-transform: scale(1.05);
+            -moz-transform: scale(1.05);
+            transform: scale(1.05);
+        }
+        
+        text.st2 {
+            fill: #D9D9D9;
+        }
+        
+        text.st3 {
+            font-family: 'Palatino-Roman';
+        }
+        
+        text.st4 {
+            font-size: 16px;
+        }
+        
+        text.st5 {
+            font-size: 14px;
+        }
+        
+        text.st6 {
+            font-size: 20px;
+        }
+        
+        path.st7 {
+            opacity: 0.5;
+            stroke: #C7B299;
+            enable-background: new;
+        }
+        
+        path.st8 {
+            opacity: 0.4;
+            stroke: #C7B299;
+            enable-background: new;
+        }
+        
+        path.st9 {
+            opacity: 0.2;
+            stroke: #C7B299;
+            enable-background: new;
+        }
+        
+        @media only screen and (min-device-width: 320px) and (max-device-width: 667px) and (orientation: portrait) {
+            .main-container .view-container .content .circle-container .circle-content {
+                width: 100vw;
+            }
+        }
+        
+        @media only screen and (min-device-width: 320px) and (max-device-width: 667px) and (orientation: landscape) {
+            .main-container .view-container .content .circle-container .circle-content {
+                width: 33vw;
+            }
+        }
+        
+        @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
+            .main-container .view-container .content .circle-container .circle-content {
+                width: 77vw;
+            }
+        }
+        
+        @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+            .main-container .view-container .content .circle-container .circle-content {
+                width: 43vw;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+    <section class="content">
+        <div class="work-overly">
+            <a href="#" class="close-btn">
+                <svg x="0px" y="0px" viewBox="0 0 47 47" preserveAspectRatio="xMidYMid meet" width="100%" height="100%">
+                        <g id="Layer_1">
+                            <circle class="cbt0" cx="23.5" cy="23.5" r="21.7" /> </g>
+                        <g id="Layer_2">
+                            <line class="cbt1" x1="12.5" y1="23.5" x2="34.5" y2="23.5" /> </g>
+                    </svg>
+            </a>
+        </div>
+        <div class="circle-container">
+            <div class="circle-content">
+                <?xml version="1.0" encoding="utf-8"?>
+                <svg version="1.1" id="content-info" x="0px" y="0px" width="100%" height="100%" viewBox="0 0 468 468">
+
+<circle class="st0" cx="234" cy="234" r="233.7"/>
+<g>
+	<g id="category">
+	    <a class="work-btn" href="#" alt="Web">
+		<g id="Print_Btn">
+			<path class="st1" d="M88.1,284.1l41.7-41.7l41.7,41.7l-41.7,41.7L88.1,284.1z"/>
+			<text id="Web" transform="matrix(1 0 0 1 115.0508 290.6258)" class="st2 st3 st4">Web</text>
+		</g>
+		</a>
+		<a class="work-btn" href="#" alt="Ads">
+		<g id="Web_Btn">
+			<path class="st1" d="M191.1,284.1l41.7-41.7l41.7,41.7l-41.7,41.7L191.1,284.1z"/>
+			<text id="Ads" transform="matrix(1 0 0 1 219.0742 290.6258)" class="st2 st3 st4">Ads</text>
+		</g>
+        </a>
+        <a class="work-btn" href="#" alt="Web">
+		<g id="Media_btn">
+			<path class="st1" d="M294.1,284.1l41.7-41.7l41.7,41.7l-41.7,41.7L294.1,284.1z"/>
+			<text id="Games" transform="matrix(1 0 0 1 312.1836 290.6258)" class="st2 st3 st4">Games</text>
+		</g>
+        </a>
+	</g>
+	<text transform="matrix(1 0 0 1 174.3713 153.3838)" class="st2 st3 st4">Sort by category:</text>
+	<text transform="matrix(1 0 0 1 59.3967 183.3858)" class="st2 st3 st5">Please select from one the following below to experience</text>
+	<text transform="matrix(1 0 0 1 123.8801 213.3878)" class="st2 st3 st5">one of our many unique signatures.</text>
+	<text id="Work" transform="matrix(1 0 0 1 205.9475 112.3838)" class="st2 st3 st6">Work</text>
+	<g id="Group_2_copy_2">
+		<path class="st7" d="M202.4,107.6v1h-90v-1H202.4z"/>
+		<path id="Rectangle_4_copy" class="st8" d="M98.4,108.1l5.4-5.4l5.4,5.4l-5.4,5.4L98.4,108.1z"/>
+	</g>
+	<g id="Group_2_copy_3">
+		<path class="st7" d="M257.4,108.6v-1h90.1v1H257.4z"/>
+		<path id="Rectangle_4_copy-2" class="st8" d="M361.4,108.1l-5.4,5.5l-5.4-5.5l5.4-5.5L361.4,108.1z"/>
+	</g>
+	<path class="st9" d="M259.5,359l-25.4,13.5l-25.5-13.1"/>
+	<path id="Shape_2_copy_2" class="st7" d="M291,355.3v1H177v-1H291z"/>
+</g>
+</svg>
+
+            </div>
+        </div>
+        <div class="triangle-container">
+            <svg id="triangle" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 1637 1079" preserveAspectRatio="xMidYMax meet" width="1637" height="1079" xml:space="preserve">
+                <g>
+                    <polyline class="st0" points="145.3,1 817,1079 1491.7,1 	" /> </g>
+                <g>
+                    <polyline class="st1" points="1491.7,1078.5 820,0.5 145.3,1078.5 	" /> </g>
+            </svg>
+        </div>
+    </section>
+</body>
+
+</html>
