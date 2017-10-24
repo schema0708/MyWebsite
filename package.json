@@ -10,7 +10,8 @@
     "gulp-ruby-sass": "^2.1.1"
   },
   "devDependencies": {
-    "gulp-plumber": "^1.1.0"
+    "gulp-plumber": "^1.1.0",
+    "gulp-webserver": "^0.9.1"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

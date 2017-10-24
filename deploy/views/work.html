@@ -2,396 +2,605 @@
 <html>
 
 <head>
-    <title>Work</title>
-    <meta charset="UTF-8">
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="keywords" content="">
+  <title>Work</title>
+  <meta charset="UTF-8">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="keywords" content="">
 
-    <script type="application/javascript">
-        function setupView() {
-            console.info("setupView();");
-            TweenMax.set($(".circle-container"), {
+  <script type="application/javascript">
+    function setupView() {
+      console.info("setupView();");
+      TweenMax.set($("#console2"), {
 
-                opacity: 0,
-            });
-            TweenMax.set($(".heading"), {
-                opacity: 0
-            });
-            TweenMax.set($(".r-line"), {
-                transformOrigin: "left",
-                opacity: 0,
-                scaleX: 0
-            });
-            TweenMax.set($(".l-line"), {
-                transformOrigin: "right",
-                opacity: 0,
-                scaleX: 0
-            });
-            TweenMax.set($(".diamond"), {
-                transformOrigin: "center",
-                opacity: 0,
-                scale: 0,
-                rotation: "+=180"
-            });
-            TweenMax.set($(".bottom-line"), {
-                transformOrigin: "center",
-                opacity: 0,
-                scaleX: 0
-            });
-            TweenMax.set($(".bottom-diamond"), {
-                opacity: 0
-            });
+        autoAlpha: 0,
+      });
+      TweenMax.set($(".circle-container"), {
 
-            TweenMax.set($(".my-copy"), {
-                opacity: 0
-            });
+        autoAlpha: 0,
+      });
+      TweenMax.set($(".heading"), {
+        autoAlpha: 0
+      });
+      TweenMax.set($(".r-line"), {
+        transformOrigin: "left",
+        scaleX: 0
+      });
+      TweenMax.set($(".l-line"), {
+        transformOrigin: "right",
+        scaleX: 0
+      });
+      TweenMax.set($(".diamond"), {
+        transformOrigin: "center",
+        scale: 0,
+        rotation: "-=180"
+      });
+      TweenMax.set($(".bottom-line"), {
+        transformOrigin: "center",
+        scaleX: 0
+      });
+      TweenMax.set($(".bottom-diamond"), {
+        autoAlpha: 0
+      });
 
-            $(".work-btn").click(revealWork);
-        }
+      TweenMax.set($("#console1"), {
+        autoAlpha: 0
+      });
 
-        function revealWork() {
-            console.log("revealWork();");
-            TweenMax.to($(".work-overly"), 1, {
-                opacity: 1,
-                ease: Strong.easeOut,
-                onComplete: loadWork
-            });
-        }
 
-        function loadWork() {
-            console.log("loadWork();");
-        }
 
-        function animateView() {
-            console.info("animateView");
-            var tl = new TimelineMax();
-            tl.to($(".circle-container"), 1, {
-                opacity: 1,
-                ease: Quad.easeInOut
-            }).to($(".heading"), 2, {
-                opacity: 1,
-                ease: Quad.easeInOut
-            }, 0.25).to($(".r-line"), 1, {
-                transformOrigin: "left",
-                opacity: 1,
-                scaleX: 1,
-                ease: Quad.easeInOut
-            }, 0.5).to($(".l-line"), 1, {
-                transformOrigin: "right",
-                opacity: 1,
-                scaleX: 1,
-                ease: Quad.easeInOut
-            }, 0.5).to($(".diamond"), 1, {
-                transformOrigin: "center",
-                opacity: 1,
-                scale: 1,
-                rotation: "+=180",
-                ease: Quad.easeInOut
-            }, 0.75).to($(".my-copy"), 1, {
-                opacity: 1,
-                ease: Quad.easeInOut
-            }, 1).to($(".bottom-line"), 1, {
-                opacity: 1,
-                scaleX: 1,
-                ease: Quad.easeInOut
-            }, 1.25).to($(".bottom-diamond"), 1, {
-                opacity: 0.5,
-                ease: Quad.easeInOut
-            }, 1.5);
-        }
-        window.onload = setupView();
+      setupButtons();
+    }
 
-    </script>
-    <style>
-        .main-container .view-container .content {
-            display: block;
-            position: relative;
-            width: 100%;
-            height: 100%;
-            background: #000 url("images/work_bkg.jpg") no-repeat;
-            background-size: cover;
-            background-position: center;
-        }
-        
-        #triangle .st0 {
-            fill: none;
-            stroke: #F79779;
-            stroke-miterlimit: 10;
-        }
-        
-        #triangle .st1 {
-            fill: none;
-            stroke: #C7B299;
-            stroke-miterlimit: 10;
-        }
-        
-        .main-container .view-container .content .circle-container {
-            display: block;
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            left: 50%;
-            top: 50%;
-            max-width: 471px;
-            max-height: 471px;
-            -webkit-transform: translate(-50%, -50%);
-            -ms-transform: translate(-50%, -50%);
-            -moz-transform: translate(-50%, -50%);
-            transform: translate(-50%, -50%);
-        }
-        
-        .main-container .view-container .content .circle-container .circle-content {
-            display: block;
-            position: relative;
-            width: 60vw;
-            height: 60vh;
-            max-width: 480px;
-            max-height: 480px;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            margin: 0px;
-            padding: 0px;
-        }
-        
-        .main-container .view-container .content .triangle-container {
-            display: block;
-            position: absolute;
-            width: 1637px;
-            height: 100%;
-            top: 0px;
-            left: 50%;
-            pointer-events: none;
-            -webkit-transform: translateX(-50%);
-            -ms-transform: translateX(-50%);
-            -moz-transform: translateX(-50%);
-            transform: translateX(-50%);
-        }
-        
-        #triangle {
-            height: 100%;
-        }
-        
-        .content .circle-container circle.st0,
-        .content .circle-container polyline.st0 {
-            opacity: 0.25;
-            fill: #474040;
-            stroke: #9E8D7B;
-            stroke-width: 2;
-            enable-background: new;
-        }
-        
-        .content .circle-container polyline.st1,
-        .content .circle-container path.st1 {
-            opacity: 0.25;
-            stroke: #C7B299;
-            enable-background: new;
-        }
-        
-        .content .work-btn {
-            display: block;
-            position: relative;
-            width: auto;
-            height: auto;
-            text-decoration: none;
-            cursor: pointer;
-        }
-        
-        .content .work-btn text,
-        .content .work-btn path {
-            -webkit-transition: -webkit-all 1s ease-out;
-            -moz-transition: -moz-all 1s ease-out;
-            -ms-transition: -ms-all 1s ease-out;
-            transition: all 1s ease-out;
-        }
-        
-        .content .work-btn:hover path {
-            -webkit-opacity: 0.5;
-            -ms-opacity: 0.5;
-            -moz-opacity: 0.5;
-            opacity: 0.5;
-        }
-        
-        .content .work-btn:hover text {
-            fill: #d4907a;
-        }
-        
-        .content .work-overly {
-            display: block;
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            top: 0px;
-            left: 0px;
-            -webkit-opacity: 0;
-            -moz-opacity: 0;
-            -ms-opacity: 0;
-            opacity: 0;
-            pointer-events: none;
-            background-color: rgba(0, 0, 0, 0.6);
-            z-index: 3;
-        }
-        
-        .content .work-overly .close-btn {
-            display: block;
-            position: relative;
-            width: 3vw;
-            height: 100%;
-            top: 10px;
-            right: 10px;
-            text-decoration: none;
-            margin: 0px;
-            padding: 0px;
-            max-width: 40px;
-            max-height: 40px;
-            min-width: 35px;
-            min-height: 35px;
-            -webkit-transition: -webkit-transform 1s ease-out;
-            -moz-transition: -moz-transform 1s ease-out;
-            -ms-transition: -ms-transform 1s ease-out;
-            transition: transform 1s ease-out;
-        }
-        
-        .content .work-overly .close-btn:hover {
-            -webkit-transform: scale(1.05);
-            -ms-transform: scale(1.05);
-            -moz-transform: scale(1.05);
-            transform: scale(1.05);
-        }
-        
-        text.st2 {
-            fill: #D9D9D9;
-        }
-        
-        text.st3 {
-            font-family: 'Palatino-Roman';
-        }
-        
-        text.st4 {
-            font-size: 16px;
-        }
-        
-        text.st5 {
-            font-size: 14px;
-        }
-        
-        text.st6 {
-            font-size: 20px;
-        }
-        
-        path.st7 {
-            opacity: 0.5;
-            stroke: #C7B299;
-            enable-background: new;
-        }
-        
-        path.st8 {
-            opacity: 0.4;
-            stroke: #C7B299;
-            enable-background: new;
-        }
-        
-        path.st9 {
-            opacity: 0.2;
-            stroke: #C7B299;
-            enable-background: new;
-        }
-        
-        @media only screen and (min-device-width: 320px) and (max-device-width: 667px) and (orientation: portrait) {
-            .main-container .view-container .content .circle-container .circle-content {
-                width: 100vw;
-            }
-        }
-        
-        @media only screen and (min-device-width: 320px) and (max-device-width: 667px) and (orientation: landscape) {
-            .main-container .view-container .content .circle-container .circle-content {
-                width: 33vw;
-            }
-        }
-        
-        @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
-            .main-container .view-container .content .circle-container .circle-content {
-                width: 77vw;
-            }
-        }
-        
-        @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
-            .main-container .view-container .content .circle-container .circle-content {
-                width: 43vw;
-            }
-        }
+    function setupButtons() {
 
-    </style>
+
+      $(".work-btn").click(revealWork);
+
+      $(".work-btn").each(function(i, val) {
+        $(this).data("id", i);
+      });
+    }
+
+
+    function revealWork(e) {
+      console.log("revealWork();");
+
+      console.log("Id selected is: ", $(this).data("id"));
+      var tl = new TimelineMax();
+      tl.to($("#console1"), 1, {
+        autoAlpha: 0,
+        ease: Strong.easeOut
+      }).to($("#console2"), 1, {
+        autoAlpha: 1,
+        ease: Quad.easeInOut,
+        onComplete: loadWork
+      }, 0.5);
+    }
+
+    function loadWork() {
+      console.log("loadWork();");
+    }
+
+    $.animateView = function() {
+      console.info("animateView");
+
+      var tl = new TimelineMax();
+      tl.to($(".circle-container"), 1, {
+          autoAlpha: 1,
+          ease: Quad.easeInOut
+        })
+        .to($(".heading"), 2, {
+          autoAlpha: 1,
+          ease: Quad.easeInOut
+        }, 0.25)
+        .to($(".r-line"), 1, {
+          transformOrigin: "left",
+          scaleX: 1,
+          ease: Quad.easeInOut
+        }, 0.5)
+        .to($(".l-line"), 1, {
+          transformOrigin: "right",
+          scaleX: 1,
+          ease: Quad.easeInOut
+        }, 0.5)
+        .to($(".diamond"), 1, {
+          transformOrigin: "center",
+          scale: 1,
+          rotation: "+=180",
+          ease: Quad.easeInOut
+        }, 0.75)
+        .to($("#console1"), 1, {
+          autoAlpha: 1,
+          ease: Quad.easeInOut
+        }, 1)
+        .to($(".bottom-line"), 1, {
+          scaleX: 1,
+          ease: Quad.easeInOut
+        }, 1.25)
+        .to($(".bottom-diamond"), 1, {
+          autoAlpha: 0.25,
+          ease: Quad.easeInOut
+        }, 1.5);
+    }
+    window.onload = setupView();
+  </script>
+  <style>
+    html,
+    body {
+      width: 100%;
+      height: 100%;
+    }
+
+    body {
+      margin: 0px;
+      padding: 0px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    .main-container .view-container .content {
+      display: block;
+      position: relative;
+      width: 100%;
+      height: 100%;
+      background: #000 url("images/work_bkg.jpg") no-repeat;
+      background-size: cover;
+      background-position: center;
+    }
+
+    #triangle .st0 {
+      fill: none;
+      stroke: #F79779;
+      stroke-miterlimit: 10;
+    }
+
+    #triangle .st1 {
+      fill: none;
+      stroke: #C7B299;
+      stroke-miterlimit: 10;
+    }
+
+    .main-container .view-container .content .circle-container {
+      display: block;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      left: 50%;
+      top: 50%;
+      max-width: 471px;
+      max-height: 471px;
+      -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      -moz-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+    }
+
+    .main-container .view-container .content .circle-container .circle-content {
+      display: block;
+      position: relative;
+      width: 60vw;
+      height: 60vh;
+      max-width: 480px;
+      max-height: 480px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      margin: 0px;
+      padding: 0px;
+    }
+
+    .main-container .view-container .content .triangle-container {
+      display: block;
+      position: absolute;
+      width: 1637px;
+      height: 100%;
+      top: 0px;
+      left: 50%;
+      pointer-events: none;
+      -webkit-transform: translateX(-50%);
+      -ms-transform: translateX(-50%);
+      -moz-transform: translateX(-50%);
+      transform: translateX(-50%);
+    }
+
+    #triangle {
+      height: 100%;
+    }
+
+    .content .work-btn {
+      display: block;
+      position: relative;
+      width: auto;
+      height: auto;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .content .work-btn text,
+    .content .work-btn path {
+      -webkit-transition: -webkit-all 1s ease-out;
+      -ms-transition: -ms-all 1s ease-out;
+      -moz-transition: -moz-all 1s ease-out;
+      transition: all 1s ease-out;
+    }
+
+    .content .work-btn:hover path {
+      -webkit-opacity: 0.5;
+      -ms-opacity: 0.5;
+      -moz-opacity: 0.5;
+      opacity: 0.5;
+    }
+
+    .content .work-btn:hover text {
+      fill: #d4907a;
+    }
+
+    .content #previous-btn circle,
+    .content #previous-btn path,
+    .content #next-btn circle,
+    .content #next-btn path,
+    .content #close-btn circle,
+    .content #close-btn path {
+      -webkit-transition: -webkit-all 1s ease-out;
+      -ms-transition: -ms-all 1s ease-out;
+      -moz-transition: -moz-all 1s ease-out;
+      transition: all 1s ease-out;
+    }
+
+    .content #previous-btn:hover circle,
+    .content #next-btn:hover circle,
+    .content #close-btn:hover circle {
+      -webkit-opacity: 0.5;
+      -ms-opacity: 0.5;
+      -moz-opacity: 0.5;
+      opacity: 0.5;
+    }
+
+    .content #previous-btn:hover path,
+    .content #next-btn:hover path,
+    .content #close-btn:hover path {
+      fill: #d4907a;
+    }
+
+    .circle-content circle.st0 {
+      opacity: 0.25;
+      fill: #474040;
+      stroke: #9E8D7B;
+      stroke-width: 2;
+      enable-background: new;
+    }
+
+    .circle-content circle.st1 {
+      opacity: 0.25;
+      stroke: #C7B299;
+    }
+
+    .circle-content path.st2 {
+      fill: #FFFFFF;
+    }
+
+    .circle-content path.st3 {
+      opacity: 0.25;
+      stroke: #C7B299;
+      enable-background: new;
+
+
+    }
+
+    .circle-content text.st4 {
+      fill: #D9D9D9;
+    }
+
+    .circle-content text.st5 {
+      font-family: 'Palatino-Roman';
+    }
+
+    .circle-content text.st6 {
+      font-size: 16px;
+    }
+
+    .circle-content text.st7 {
+      font-size: 14px;
+    }
+
+    .circle-content text.st8 {
+      font-size: 20px;
+    }
+
+    .circle-content path.st9 {
+      opacity: 0.5;
+      fill: #020201;
+      stroke: #A79583;
+      stroke-miterlimit: 10;
+      enable-background: new;
+    }
+
+    .circle-content path.st10 {
+      opacity: 0.2;
+      stroke: #C7B299;
+      enable-background: new;
+    }
+
+    .circle-content path.st11 {
+      fill: none;
+      stroke: #A79583;
+      stroke-miterlimit: 10;
+      stroke-opacity: 0.5;
+    }
+
+    .center-content {
+      display: block;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+
+    }
+
+    .work-container {
+      width: 9vw;
+      height: 9vw;
+      min-width: 60px;
+      min-height: 60px;
+      max-width: 150px;
+      max-height: 150px;
+      overflow: hidden;
+      border: 1px solid green;
+    }
+
+    .work-container .triangle-row {
+      display: block;
+      position: absolute;
+      top: 0px;
+      left: 0%;
+      padding: 0px;
+      margin: 0px;
+      width: 70vw;
+      border: 1px solid red;
+      height: auto;
+    }
+
+    .work-container .triangle-row ul {
+      display: block;
+      position: relative;
+      width: auto;
+      height: auto;
+      list-style: none;
+      padding: 0px;
+      margin: 0px;
+    }
+
+    .work-container .triangle-row ul li {
+      display: inline;
+      float: left;
+      position: relative;
+      width: 8vw;
+      height: 8vw;
+      max-width: 150px;
+      border: 1px solid white;
+      margin: 2.7%;
+    }
+
+    .work-container .triangle-row .triangle-btn {
+      display: block;
+      position: relative;
+      width: 100%;
+      height: 100%;
+      max-width: 150px;
+      max-height: 150px;
+      background-color: #000;
+      text-align: center;
+      user-select: none;
+      transition: all 1s ease-out;
+    }
+
+    .work-container .triangle-row .triangle-btn .triangle {
+      display: block;
+      position: relative;
+      left: 0px;
+      top: 0px;
+      width: 100%;
+      height: 100%;
+      border: 1px solid #399a9c;
+      box-shadow: 0px 0px 10px 5px rgba(57, 154, 156, 0.5);
+      transform: rotate(45deg);
+      transition: all 1s ease-out;
+    }
+
+
+    .work-container .triangle-row ul li .triangle-btn h1 {
+
+      font-size: 12px;
+      letter-spacing: 1px;
+      z-index: 1;
+      color: #fff;
+      text-transform: uppercase;
+      text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.004);
+      font-weight: 100;
+      font-style: italic;
+      transform: translate(-50%, -50%);
+      transition: background-color 1s ease-out, color 1s ease-out;
+    }
+
+
+    .work-container .triangle-row .triangle-btn:hover .triangle {
+
+      background-color: #399a9c;
+    }
+
+    .work-container .triangle-row .triangle-btn:hover h1 {
+      color: #000;
+    }
+
+    @media only screen and (min-device-width: 320px) and (max-device-width: 667px) and (orientation: portrait) {
+      .main-container .view-container .content .circle-container .circle-content {
+        width: 100vw;
+      }
+    }
+
+    @media only screen and (min-device-width: 320px) and (max-device-width: 667px) and (orientation: landscape) {
+      .main-container .view-container .content .circle-container .circle-content {
+        width: 33vw;
+      }
+    }
+
+    @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
+      .main-container .view-container .content .circle-container .circle-content {
+        width: 77vw;
+      }
+    }
+
+    @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+      .main-container .view-container .content .circle-container .circle-content {
+        width: 43vw;
+      }
+    }
+  </style>
 </head>
 
 <body>
-    <section class="content">
-        <div class="work-overly">
-            <a href="#" class="close-btn">
-                <svg x="0px" y="0px" viewBox="0 0 47 47" preserveAspectRatio="xMidYMid meet" width="100%" height="100%">
-                        <g id="Layer_1">
-                            <circle class="cbt0" cx="23.5" cy="23.5" r="21.7" /> </g>
-                        <g id="Layer_2">
-                            <line class="cbt1" x1="12.5" y1="23.5" x2="34.5" y2="23.5" /> </g>
-                    </svg>
+  <section class="content">
+    <!-- <div class="work-container center-content">
+      <div class="triangle-row">
+        <ul>
+          <li>
+            <a href="#" class="triangle-btn">
+              <h1 class="center-content">item 1</h1>
+
+              <div class="triangle">
+              </div>
             </a>
-        </div>
-        <div class="circle-container">
-            <div class="circle-content">
-                <?xml version="1.0" encoding="utf-8"?>
-                <svg version="1.1" id="content-info" x="0px" y="0px" width="100%" height="100%" viewBox="0 0 468 468">
+          </li>
+          <li>
+            <a href="#" class="triangle-btn">
+              <h1 class="center-content">item 2</h1>
+
+              <div class="triangle">
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="triangle-btn">
+              <h1 class="center-content">item 3</h1>
+              <div class="triangle">
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="triangle-btn">
+              <h1 class="center-content">item 4</h1>
+              <div class="triangle">
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="triangle-btn">
+              <h1 class="center-content">item 5</h1>
+              <div class="triangle">
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="triangle-btn">
+              <h1 class="center-content">item 6</h1>
+              <div class="triangle">
+              </div>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div> -->
+
+    <div class="circle-container">
+
+
+      <div class="circle-content">
+        <svg version="1.1" id="content-info" x="0px" y="0px" width="100%" height="100%" viewBox="0 0 468 468">
 
 <circle class="st0" cx="234" cy="234" r="233.7"/>
-<g>
+<g id="console2">
+	<g id="prev-next-btns">
+    <a id="previous-btn" href="#">
+		<g>
+			<circle class="st1" cx="207.2" cy="332.1" r="16.3"/>
+			<g>
+				<path class="st2" d="M202,331.6l9.1-4.7v1.4l-7.7,3.8v0l7.7,3.8v1.4l-9.1-4.7V331.6z"/>
+			</g>
+		</g>
+  </a>
+  <a id="next-btn" href="#">
+		<g>
+			<circle class="st1" cx="260.8" cy="332.1" r="16.3"/>
+			<g>
+				<path class="st2" d="M266,332.5l-9.1,4.7v-1.4l7.7-3.8v0l-7.7-3.8v-1.4l9.1,4.7V332.5z"/>
+			</g>
+		</g>
+	</g>
+</a>
+<a id="close-btn" href="#">
+	<g>
+		<circle class="st1" cx="354.1" cy="144.9" r="16.3"/>
+		<g>
+			<path class="st2" d="M351.7,140.7l1.3,2c0.3,0.5,0.6,1,0.9,1.5h0.1c0.3-0.6,0.6-1,0.9-1.5l1.3-2h1.8l-3.1,4.5l3.2,4.8h-1.9
+				l-1.4-2.1c-0.4-0.5-0.7-1-1-1.6h0c-0.3,0.6-0.6,1-1,1.6l-1.3,2.1h-1.8l3.3-4.7l-3.1-4.5H351.7z"/>
+		</g>
+	</g>
+</g>
+</a>
+<g id="console1">
 	<g id="category">
-	    <a class="work-btn" href="#" alt="Web">
-		<g id="Print_Btn">
-			<path class="st1" d="M88.1,284.1l41.7-41.7l41.7,41.7l-41.7,41.7L88.1,284.1z"/>
-			<text id="Web" transform="matrix(1 0 0 1 115.0508 290.6258)" class="st2 st3 st4">Web</text>
+	<a id="web-btn" class="work-btn" href="#" alt="Web">
+		<g id="Web_Btn">
+			<path class="st3" d="M88.1,284.1l41.7-41.7l41.7,41.7l-41.7,41.7L88.1,284.1z"/>
+			<text id="Web" transform="matrix(1 0 0 1 115.0508 290.6258)" class="st4 st5 st6">Web</text>
+		</g>
+		  </a>
+		   <a id="ad-btn" class="work-btn" href="#" alt="Ads">
+		<g id="Ads_Btn">
+			<path class="st3" d="M191.1,284.1l41.7-41.7l41.7,41.7l-41.7,41.7L191.1,284.1z"/>
+			<text id="Ads" transform="matrix(1 0 0 1 219.0742 290.6258)" class="st4 st5 st6">Ads</text>
 		</g>
 		</a>
-		<a class="work-btn" href="#" alt="Ads">
-		<g id="Web_Btn">
-			<path class="st1" d="M191.1,284.1l41.7-41.7l41.7,41.7l-41.7,41.7L191.1,284.1z"/>
-			<text id="Ads" transform="matrix(1 0 0 1 219.0742 290.6258)" class="st2 st3 st4">Ads</text>
+		<a id="games-btn" class="work-btn" href="#" alt="Games">
+		<g id="Game_btn">
+			<path class="st3" d="M294.1,284.1l41.7-41.7l41.7,41.7l-41.7,41.7L294.1,284.1z"/>
+			<text id="Games" transform="matrix(1 0 0 1 312.1836 290.6258)" class="st4 st5 st6">Games</text>
 		</g>
-        </a>
-        <a class="work-btn" href="#" alt="Web">
-		<g id="Media_btn">
-			<path class="st1" d="M294.1,284.1l41.7-41.7l41.7,41.7l-41.7,41.7L294.1,284.1z"/>
-			<text id="Games" transform="matrix(1 0 0 1 312.1836 290.6258)" class="st2 st3 st4">Games</text>
-		</g>
-        </a>
+		</a>
 	</g>
-	<text transform="matrix(1 0 0 1 174.3713 153.3838)" class="st2 st3 st4">Sort by category:</text>
-	<text transform="matrix(1 0 0 1 59.3967 183.3858)" class="st2 st3 st5">Please select from one the following below to experience</text>
-	<text transform="matrix(1 0 0 1 123.8801 213.3878)" class="st2 st3 st5">one of our many unique signatures.</text>
-	<text id="Work" transform="matrix(1 0 0 1 205.9475 112.3838)" class="st2 st3 st6">Work</text>
+	<text transform="matrix(1 0 0 1 174.3713 153.3838)" class="st4 st5 st6">Sort by category:</text>
+	<text transform="matrix(1 0 0 1 59.3967 183.3858)" class="st4 st5 st7">Please select from one the following below to experience</text>
+	<text transform="matrix(1 0 0 1 123.8801 213.3878)" class="st4 st5 st7">one of our many unique signatures.</text>
+</g>
+<g id="console0">
+	<text id="Work" transform="matrix(1 0 0 1 205.9475 112.3838)" class="heading st4 st5 st8">Work</text>
 	<g id="Group_2_copy_2">
-		<path class="st7" d="M202.4,107.6v1h-90v-1H202.4z"/>
-		<path id="Rectangle_4_copy" class="st8" d="M98.4,108.1l5.4-5.4l5.4,5.4l-5.4,5.4L98.4,108.1z"/>
+		<path class="st11 l-line" d="M202.4,107.8v0.5h-90v-0.5H202.4z"/>
+		<path id="Rectangle_4_copy" class="st9 diamond" d="M98.4,108.1l5.4-5.4l5.4,5.4l-5.4,5.4L98.4,108.1z"/>
 	</g>
 	<g id="Group_2_copy_3">
-		<path class="st7" d="M257.4,108.6v-1h90.1v1H257.4z"/>
-		<path id="Rectangle_4_copy-2" class="st8" d="M361.4,108.1l-5.4,5.5l-5.4-5.5l5.4-5.5L361.4,108.1z"/>
+		<path class="st11 r-line" d="M257.4,108.3v-0.5h90.1v0.5H257.4z"/>
+		<path id="Rectangle_4_copy-2" class="st9 diamond" d="M361.4,108.1l-5.4,5.5l-5.4-5.5l5.4-5.5L361.4,108.1z"/>
 	</g>
-	<path class="st9" d="M259.5,359l-25.4,13.5l-25.5-13.1"/>
-	<path id="Shape_2_copy_2" class="st7" d="M291,355.3v1H177v-1H291z"/>
+	<path class="st10" d="M259.5,359l-25.4,13.5l-25.5-13.1"/>
+	<path id="Shape_2_copy_2" class="st11 bottom-line" d="M291,355.5v0.5H177v-0.5H291z"/>
 </g>
 </svg>
 
-            </div>
-        </div>
-        <div class="triangle-container">
-            <svg id="triangle" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 1637 1079" preserveAspectRatio="xMidYMax meet" width="1637" height="1079" xml:space="preserve">
+      </div>
+    </div>
+    <div class="triangle-container">
+      <svg id="triangle" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 1637 1079" preserveAspectRatio="xMidYMax meet" width="1637" height="1079" xml:space="preserve">
                 <g>
                     <polyline class="st0" points="145.3,1 817,1079 1491.7,1 	" /> </g>
                 <g>
                     <polyline class="st1" points="1491.7,1078.5 820,0.5 145.3,1078.5 	" /> </g>
             </svg>
-        </div>
-    </section>
+    </div>
+  </section>
 </body>
 
 </html>
